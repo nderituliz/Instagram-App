@@ -25,3 +25,24 @@ def photo_upload(request):
         form = ImageForm()
 
     return render(request,"photo_upload.html",{"form":form})
+
+@login_required(login_url='accounts/login')
+def create_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = ProfileForm(request.POST)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.save()
+
+        return redirect('/')
+    else:
+        form = ProfileForm()
+
+    return  render(request,"create_profile.html",{'form':form})
+
+def user_profile(request, username):
+    username = request.user
+    profiles = Profile.objects.all()
+
+    return render(request,"profile.html", {"profiles":profiles})
