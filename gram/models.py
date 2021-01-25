@@ -23,3 +23,18 @@ class Image(models.Model):
     
     def update_caption(self):
         self.save()
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ""
+        return url
+
+    @property
+    def get_photo_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        else:
+            return "/static/images/user.png"
