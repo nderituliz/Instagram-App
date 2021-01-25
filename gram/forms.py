@@ -9,5 +9,5 @@ class ImageForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        #exclude = ['username']
+        exclude = ['username']
         fields = ['profile', 'bio']
