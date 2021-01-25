@@ -46,3 +46,8 @@ def user_profile(request, username):
     profiles = Profile.objects.all()
 
     return render(request,"profile.html", {"profiles":profiles})
+
+@login_required(login_url='/accounts/login')
+def photo_comments(request, photo_id):
+
+    return None
