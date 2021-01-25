@@ -38,3 +38,10 @@ class Image(models.Model):
             return self.image.url
         else:
             return "/static/images/user.png"
+
+
+
+class Profile(models.Model):
+    #user_name = models.ForeignKey(User,on_delete=models.CASCADE,null=False)
+    profile =  models.CharField(max_length= 140,default='A little about me....')
+    bio = models.TextField()
