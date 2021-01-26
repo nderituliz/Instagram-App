@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gram',
+    'gram.apps.GramConfig',
     'bootstrap4',
     'bootstrap3',
-    'registration',
+    'vote',
+    'tinymce',
+    
 
 ]
 

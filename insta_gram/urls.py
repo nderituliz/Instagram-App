@@ -19,7 +19,7 @@ from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('insta.urls')),
+    path('',include('gram.urls')),
     path('accounts/',include('registration.backends.simple.urls')),
     path('logout/',views.LogoutView.as_view(next_page = '/')),
     path('tinymce/',include('tinymce.urls')),
