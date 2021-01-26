@@ -10,8 +10,10 @@ django-registration==2.4.1
 django-registration-redux==2.9
 django-tinymce==3.2.0
 django-vote==2.2.0
+gunicorn==20.0.4
 Pillow==8.1.0
 psycopg2==2.8.6
+python-decouple==3.4
 pytz==2020.5
 soupsieve==2.1
 sqlparse==0.4.1
