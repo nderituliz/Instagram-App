@@ -1,51 +1,76 @@
-<nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-            
-                <a class="navbar-brand" href="/" >Instagram</a>
-            </div>
-            <!-- Adding a Search form -->
-            <div class="col-sm-4 col-md-4 navbar-right">
-                <form class="navbar-form" role="search" action="">
-                    <div class="input-group">
-                        <input type="text"  class="form-control" placeholder="Search " name="article" id="">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- search form end -->
-            <!--The search form above-->
-    <div class="col-sm-6 col-md-6">
-        {% if user.is_authenticated %}
-        <ul>
-          <li  style="list-style-type: none;" class="dropdown">
-            <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                      <span class="caret"></span>
-                  </a>
-            <ul class="dropdown-menu" role="menu">
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="{%url 'uploads' %}">Create A New Post</a>
-              </li>
-              <li>
-                <a href="/accounts/password/change">Change Password</a>
-              </li>
-              <li>
-                <a href="/logout">Logout</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        {% else %}
-        <li>
-          <a class='btn btn-default' href="/accounts/login">Login</a>
-        </li>
+<!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
+  {% if user.is_authenticated %}
 
-        {% endif %}
-        </div>
-    </nav>
-    
+  <!-- Brand -->
+  <a class="navbar-brand pt-0 waves-effect" href="/">
+      <i class="fab fa-instagram fa-2x"></i>
+
+  </a>
+
+  <!-- Collapse -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Links -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <!-- Left -->
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+              <a class="nav-link waves-effect" href="#">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/2000px-Instagram_logo.svg.png"
+                      style="width:150px">
+                  <span class="sr-only">(current)</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link waves-effect" href="{% url 'upload_image'%}"><i
+                      class="fa fa-upload fa-2x"></i>Upload</a>
+
+          </li>
+          <ul class="navbar-nav nav-flex-icons">
+              <li class="nav-item">
+                  <form action="{% url 'search_results' %}">
+                      <div class="form-group">
+                          <input type="text" name="username" class="">
+                          <span><input type="submit" value="Search" class="btn-sm"></span>
+
+                      </div>
+                  </form>
+
+
+              </li>
+
+
+          </ul>
+
+          <!-- Right -->
+          <ul class="navbar-nav nav-flex-icons">
+
+              <li class="nav-item">
+                  <a href="{%url 'profile'%}" class="nav-link waves-effect">
+                      <!-- <i class="fa fa-user-circle fa-3x"></i> -->
+                      <img src="{{ user.profile.photo.url}}" alt=""
+                          style="width:50px; height:50px; border-radius:50px">
+
+                      <span class="ml-3">{{user.username}}</span>
+                  </a>
+              </li>
+
+
+              <li class="nav-item">
+                  <a href="/logout" class="nav-link border border-light rounded waves-effect ml-5">
+                      <!-- <i class="fa fa-sign-out mr-2 fa-3x text-dark"></i> -->
+                      Logout
+                  </a>
+              </li>
+          </ul>
+
+  </div>
+
+  {% endif %}
+</nav>
+<!-- Navbar -->
