@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'gram',
     'bootstrap4',
     'bootstrap3',
+    'registration',
 
 ]
 
@@ -81,7 +83,7 @@ WSGI_APPLICATION = 'insta_gram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends..postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'instagram',
         'USER':  'moringa',
         'PASSWORD':'moringa',
