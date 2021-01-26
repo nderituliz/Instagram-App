@@ -30,7 +30,7 @@ This a social media application that allows users to share their images for othe
 
 # link to the live site.
 
-* https://karumbi-gram.herokuapp.com/
+* https://lizygram.herokuapp.com/
 # Technologies used.
 * HTML
 * Bootstrap CSS
